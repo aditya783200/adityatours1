@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote</title>
+    <style>
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Define styles for the header */
+        header {
+            color: #fff;
+            padding: 10px 0;
+            background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    border-bottom: 3px solid #ccc;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #f60;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-group {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #444; /* Background color for footer groups */
+            border-radius: 10px; /* Rounded corners */
+            margin: 10px; /* Add some margin around each group */
+        }
+
+        .footer-group h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-group p,
+        .footer-group ul,
+        .footer-group address {
+            font-size: 16px;
+            color: #ccc; /* Lighter text color */
+        }
+
+        /* Style links on hover */
+        .footer-group a {
+            text-decoration: none;
+            color: #f60; /* Link color */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-group a:hover {
+            color: #ff8500; /* Change link color on hover */
+        }
+        .sticky-panel {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between buttons */
+}
+
+.sticky-panel .btn-call-sticky,
+.sticky-panel .btn-whatsapp {
+    display: inline-block;
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sticky-panel .btn-call:hover,
+.sticky-panel .btn-whatsapp:hover {
+    background-color: #e55000;
+}
+.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+       
+
+/* Style the dropdown content (hidden by default) */
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Style the dropdown items */
+.dropdown-content li {
+    padding: 10px;
+}
+
+/* Show the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tour-packages {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+
+        /* Add your existing CSS styles here */
+
+/* Style for the hero section */
+.hero {
+     background-image: url(./1.png);/* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* Additional styles for the quotation form */
+.quotation-section {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-left: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+
+    border-radius: 5px;;
+    margin-right:20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right:10px ;
+}
+
+.quotation-section:hover{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    transition: all 200ms ease-out ;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+input[type="datetime-local"] {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical; /* Allow the textarea to be resized vertically */
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+display: inline-block;
+}
+
+button[type="submit"]:hover {
+    background-color: #e55000;
+}
+
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="./att_logo.PNG" alt="Aditya Tours & Travels Logo">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="./taxi-service.html">Taxi Service</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Tour Packages</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Jaipur Sight Seeing</a></li>
+                            <li><a href="#">Jaipur to Agra (Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ranthambore(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ajmer Pushkar(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Any Other City</a></li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Quotation Request</h2>
+            <p>Get a quick quotation for your travel needs. Fill out the form below, and we'll get back to you with the best rates.</p>
+        </div>
+    </section>
+
+    <section class="quotation-section">
+        <div class="container">
+            <form id="quotation-form" action="process-quotation.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" name="from" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <input type="text" id="to" name="to" required>
+                </div>
+                <div class="form-group">
+                    <label for="departure-date">Departure Date and Time</label>
+                    <input type="datetime-local" id="departure-date" name="departure-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="return">Same Day Return or No. of Days</label>
+                    <input type="number" id="return" name="return" required>
+                </div>
+                <div class="form-group">
+                    <label for="arrival-date">Arrival Date and Time</label>
+                    <input type="datetime-local" id="arrival-date" name="arrival-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Additional Description</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+                <button type="submit">Get Quotation</button>
+            </form>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-group">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to Aditya Tours & Travels. We are dedicated to providing the best travel experiences and packages to our customers. Explore the world with us.
+                </p>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Online Booking</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Contact Information</h3>
+                <address>
+                    <p>Plot No.3 & 6, Vinayak Vihar Vistar, Jaipur, Rajasthan 302031</p>
+                    <p>Phone: +918949289030</p> <!-- Replace with your phone number -->
+                    <p>Email: adityatours.7832@gmail.com</p> <!-- Replace with your email -->
+                </address>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Sticky Navigation Panel -->
+<div class="sticky-panel">
+    <div class="call-us">
+        <a href="tel:8949289030" class="btn-call-sticky">Call Us</a>
+    </div>
+    <div class="whatsapp">
+        <a href="https://wa.me/your-whatsapp-number" class="btn-whatsapp" target="_blank">WhatsApp</a>
+    </div>
+</div>
+<script>
+    // JavaScript to add/remove the fixed-header class when scrolling
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    const header = document.getElementById('header');
+    const stickyPanel = document.querySelector('.sticky-panel');
+    const stickyPanelHeight = stickyPanel.offsetHeight;
+    const headerHeight = header.offsetHeight;
+    let isHeaderFixed = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= headerHeight) {
+            if (!isHeaderFixed) {
+                header.classList.add('fixed-header');
+                document.body.style.paddingTop = `${headerHeight}px`;
+                isHeaderFixed = true;
+            }
+        } else {
+            if (isHeaderFixed) {
+                header.classList.remove('fixed-header');
+                document.body.style.paddingTop = '0';
+                isHeaderFixed = false;
+            }
+        }
+    });
+</script>
+</body>
+</html>

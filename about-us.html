@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>About</title>
+    <style>
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: #fff;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            border-bottom: 3px solid #ccc;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #f60;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-group {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #444; /* Background color for footer groups */
+            border-radius: 10px; /* Rounded corners */
+            margin: 10px; /* Add some margin around each group */
+        }
+
+        .footer-group h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-group p,
+        .footer-group ul,
+        .footer-group address {
+            font-size: 16px;
+            color: #ccc; /* Lighter text color */
+        }
+
+        /* Style links on hover */
+        .footer-group a {
+            text-decoration: none;
+            color: #f60; /* Link color */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-group a:hover {
+            color: #ff8500; /* Change link color on hover */
+        }
+        .sticky-panel {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between buttons */
+}
+
+.sticky-panel .btn-call-sticky,
+.sticky-panel .btn-whatsapp {
+    display: inline-block;
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sticky-panel .btn-call:hover,
+.sticky-panel .btn-whatsapp:hover {
+    background-color: #e55000;
+}
+.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+       
+
+/* Style the dropdown content (hidden by default) */
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Style the dropdown items */
+.dropdown-content li {
+    padding: 10px;
+}
+
+/* Show the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tour-packages {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+        .cars-section {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .car {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+        .car:hover{
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+            transition: all 200ms ease-out ;
+        }
+
+        .car h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .car p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .car img {
+            max-width: 100%;
+            height: auto;
+        }
+       
+        .btn-call {
+            background-color: #f60;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-call:hover{
+            background-color: #e55000;
+        }
+        .car3{
+            margin-top:-25px;
+        }
+        .car4{
+            margin-top: -66px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="./att_logo.PNG" alt="Aditya Tours & Travels Logo">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./taxi-service.html">Taxi Service</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Tour Packages</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Jaipur Sight Seeing</a></li>
+                            <li><a href="#">Jaipur to Agra (Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ranthambore(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ajmer Pushkar(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Any Other City</a></li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="text-center mb-4 mt-3">About Us</h1>
+    <section id="about" class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-secondary">Aditya Tours &Travels are the trusted and the reliable tour operator they organize tours in the region which they are based.</h3>
+                <p class="mt-3 mb-3">Aditya Tours & Travels has been working hard for last 11 years to make a unique bond Car Rental, hoteliers and travel guides to be able to provide competitively valued services and tours. We do our best to assure enjoyment and unforgettable experience for you. Jaipur Trip & Travels® is a leading transportation service provider offering car rental solutions across Rajasthan for the tourist. We are here to provide you one stop solution for all your travel needs. We are here to offer a wide range of holiday packages which can also be customized as per the needs of the users so that none of them get even a single chance of complaining. We always keep in mind the varied interests of the travellers and work accordingly for their complete satisfaction. Whether you're seeking cultural immersion, historical exploration, or simply a relaxing getaway, our dedicated team at Aditya Tours & Travels is committed to curating experiences that cater to your preferences and create lasting memories.</p>
+            </div>
+            
+            <div class="col-md-6">
+                <img src="./nahargarh.jpeg" alt="About Us Image" class="img-fluid mb-3 img-thumbnail">
+            </div>
+        </div>
+    </section>
+    <section class="cars-section">
+        <h2>Our Additional Services</h2>
+        <div class="car">
+            <img src="./building.png" alt="Car 1" class="car1">
+            <h3>City Transfer</h3>
+            <p>We provide both local & outstation taxi rental for all cities..</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+        </div>
+        <div class="car">
+            <img src="./flight.jpeg" alt="Car 2 " class="car2">
+            <h3> Airport Transfer</h3>
+            <p>Jaipur to Delhi & Delhi to Jaipur Airport Taxi Available..</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+        </div>
+        <div class="car">
+            <img src="./tour.jpeg" alt="Car 3" class="car3">
+            <h3>Jaipur City Tour</h3>
+            <p>We Offer cutomized Jaipur sightseeing tour with luxury accommodation..</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+        </div>
+        <div class="car">
+            <img src="./suitcase.jpeg" alt="Car 4" class="car4">
+            <h3>Office Visit Packages</h3>
+            <p>We provide both local & outstation taxi rental for all cities..</p>
+            <p>Capacity: 12/15/17/18/26 passengers</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-group">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to Aditya Tours & Travels. We are dedicated to providing the best travel experiences and packages to our customers. Explore the world with us.
+                </p>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Online Booking</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Contact Information</h3>
+                <address>
+                    <p>Plot No.3 & 6, Vinayak Vihar Vistar, Jaipur, Rajasthan 302031</p>
+                    <p>Phone: +918949289030</p> <!-- Replace with your phone number -->
+                    <p>Email: adityatours.7832@gmail.com</p> <!-- Replace with your email -->
+                </address>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Sticky Navigation Panel -->
+<div class="sticky-panel">
+    <div class="call-us">
+        <a href="tel:your-phone-number" class="btn-call-sticky">Call Us</a>
+    </div>
+    <div class="whatsapp">
+        <a href="https://wa.me/your-whatsapp-number" class="btn-whatsapp" target="_blank">WhatsApp</a>
+    </div>
+</div>
+<script>
+    // JavaScript to add/remove the fixed-header class when scrolling
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    const header = document.getElementById('header');
+    const stickyPanel = document.querySelector('.sticky-panel');
+    const stickyPanelHeight = stickyPanel.offsetHeight;
+    const headerHeight = header.offsetHeight;
+    let isHeaderFixed = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= headerHeight) {
+            if (!isHeaderFixed) {
+                header.classList.add('fixed-header');
+                document.body.style.paddingTop = `${headerHeight}px`;
+                isHeaderFixed = true;
+            }
+        } else {
+            if (isHeaderFixed) {
+                header.classList.remove('fixed-header');
+                document.body.style.paddingTop = '0';
+                isHeaderFixed = false;
+            }
+        }
+    });
+</script>
+</body>
+</html>

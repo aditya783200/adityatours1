@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Service</title>
+    <style>
+  body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        /* Define styles for the header */
+        header {
+            color: #fff;
+            padding: 10px 0;
+            background-color: #333;
+             color: #fff;
+             padding: 10px 0;
+             border-bottom: 3px solid #ccc;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px; /* Adjust the width as needed */
+            height: auto;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-links a:hover {
+            color: #f60;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-group {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #444; /* Background color for footer groups */
+            border-radius: 10px; /* Rounded corners */
+            margin: 10px; /* Add some margin around each group */
+        }
+
+        .footer-group h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-group p,
+        .footer-group ul,
+        .footer-group address {
+            font-size: 16px;
+            color: #ccc; /* Lighter text color */
+        }
+
+        /* Style links on hover */
+        .footer-group a {
+            text-decoration: none;
+            color: #f60; /* Link color */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-group a:hover {
+            color: #ff8500; /* Change link color on hover */
+        }
+        .sticky-panel {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between buttons */
+}
+
+.sticky-panel .btn-call-sticky,
+.sticky-panel .btn-whatsapp {
+    display: inline-block;
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sticky-panel .btn-call:hover,
+.sticky-panel .btn-whatsapp:hover {
+    background-color: #e55000;
+}
+.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+       
+
+/* Style the dropdown content (hidden by default) */
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Style the dropdown items */
+.dropdown-content li {
+    padding: 10px;
+}
+
+/* Show the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tour-packages {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+      /* Style the Taxi Services Section */
+.taxi-services {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+    height: 685px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333; 
+}
+
+.taxi-services p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* Style Car Options */
+.car-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.car-option {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    width: calc(25% - 40px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    height: 450px;
+}
+
+.car-option img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.car-option h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.car-option p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Style Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.get-quote, .btn-call {
+    background-color: #f60;
+    color: #fff;
+    padding:10px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+    width: 40%;
+}
+
+.btn-call {
+    background-color: #444;
+}
+
+.get-quote:hover, .btn-call:hover {
+    background-color: #e55000;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    .car-option {
+        width: calc(50% - 40px);
+    }
+}
+/* Style Car Details Sections */
+.car-details {
+    border: 2px solid #e55000; /* Add border for each car details section */
+    border-radius: 15px; /* Rounded corners */
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px; /* Create a gap between car details sections */
+}
+
+.car-details .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.car-details h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333; 
+}
+
+.car-description p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6; 
+}
+
+.image-gallery h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; 
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    flex: calc(25% - 10px);
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.additional-features h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Text color improvement */
+}
+
+.additional-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.additional-features li {
+    font-size: 18px; /* Increased font size for better readability */
+    color: #555;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .car-details .container {
+        padding: 0 20px;
+    }
+    
+    .car-details h2 {
+        font-size: 24px;
+    }
+    
+    .car-description p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .gallery-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gallery-item {
+        flex: calc(50% - 10px);
+    }
+    
+    .additional-features ul {
+        text-align: left;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="./att_logo.PNG" alt="Aditya Tours & Travels Logo">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#booking">Taxi Service</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Tour Packages</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Jaipur Sight Seeing</a></li>
+                            <li><a href="#">Jaipur to Agra (Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ranthambore(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ajmer Pushkar(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Any Other City</a></li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section id="taxi-services" class="taxi-services">
+    <div class="container">
+        <h2 class="section-heading">Our Services</h2>
+        <p>We offer a wide range of cars from Sedan, SUVs to MUVs and luxury vehicles, as per your demand. We at Aditya Tours & Travels provides excellent Car Hire in Jaipur for outstation (roundtrip, oneway, multicity) local usage (half day & full day)</p>
+        <div class="car-options">
+            <!-- Car Option 1 -->
+            <div class="car-option">
+                <img src="./dezire.webp" alt="Car Option 1">
+                <h3>Swift Dezire</h3>
+                <p> Experience a smooth and comfortable ride with our Swift Dzire. 
+                    With its spacious interior and excellent fuel efficiency, it's the perfect choice 
+                    for both city commutes and long journeys. Make your travel memorable with Swift Dzire.</p>
+                <div class="buttons">
+                    <a href="get-quote.html" class="get-quote">Get a Quote</a>
+                    <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+                </div>
+            </div>
+            
+            <!-- Car Option 2 -->
+            <div class="car-option">
+                <img src="./etios.webp" alt="Car Option 2">
+                <h3>Etios</h3>
+                <p>Introducing our stylish and reliable Etios. With its modern design and 
+                    spacious interior, it's the perfect choice for a comfortable journey. 
+                    Whether you're traveling for business or leisure, the Etios ensures a 
+                    hassle-free and enjoyable ride.</p>
+                <div class="buttons">
+                    <a href="get-quote.html" class="get-quote">Get a Quote</a>
+                    <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+                </div>
+            </div>
+            
+            <!-- Car Option 3 -->
+            <div class="car-option">
+                <img src="./crysta.webp" alt="Car Option 3">
+                <h3>Crysta</h3>
+                <p>Experience luxury and sophistication with our premium Crysta. 
+                    Its plush interiors, advanced features, and smooth performance 
+                    redefine your travel experience. Make a statement with Crysta 
+                    and enjoy every mile of your journey in style.</p>
+                <div class="buttons">
+                    <a href="get-quote.html" class="get-quote">Get a Quote</a>
+                    <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+                </div>
+            </div>
+            
+            <!-- Car Option 4 -->
+            <div class="car-option">
+                <img src="./tamputraveller.jpeg" alt="Car Option 4">
+                <h3>Tempo Traveller</h3>
+                <p>Planning a group outing? Our spacious Tempo Traveller is the 
+                    perfect choice. With ample seating and storage space, it's ideal 
+                    for family trips, corporate events, and group adventures. Enjoy 
+                    comfort and convenience on your group journey.</p>
+                <div class="buttons">
+                    <a href="get-quote.html" class="get-quote">Get a Quote</a>
+                    <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Car Option 1 - Swift Dzire Details -->
+<div class="car-details" id="swift-dezire-details">
+    <div class="container">
+        <h2>Car Option 1 - Swift Dzire</h2>
+        <div class="car-description">
+            <p>
+                Our Swift Dzire offers a comfortable and convenient ride for both city commutes and long journeys. With its spacious interior and excellent fuel efficiency, you can enjoy a smooth and cost-effective travel experience.
+            </p>
+        </div>
+        <div class="image-gallery">
+            <h3>Image Gallery</h3>
+            <div class="gallery-images">
+                <div class="gallery-item">
+                    <img src="./sd1.webp" alt="Swift Dzire Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./sd2.webp" alt="Swift Dzire Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./sd3.webp" alt="Swift Dzire Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./sd4.jpeg" alt="Swift Dzire Image 4">
+                </div>
+            </div>
+        </div>
+        <div class="additional-features">
+            <h3>Additional Features</h3>
+            <ul>
+                <li>Spacious Interior</li>
+                <li>Excellent Fuel Efficiency</li>
+                <li>Smooth Ride</li>
+                <li>Cost-Effective</li>
+                <li>Modern Entertainment System</li>
+                <li>Capacity: 4 passengers</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Car Option 2 - Etios Details -->
+<div class="car-details" id="etios-details">
+    <div class="container">
+        <h2>Car Option 2 - Etios</h2>
+        <div class="car-description">
+            <p>
+                Our Etios is designed to offer both comfort and style. It's the perfect choice for those who value a smooth and enjoyable ride. With its spacious interior and modern amenities, your journey becomes a delightful experience.
+            </p>
+        </div>
+        <div class="image-gallery">
+            <h3>Image Gallery</h3>
+            <div class="gallery-images">
+                <div class="gallery-item">
+                    <img src="./et1.jpeg" alt="Etios Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./et2.jpeg" alt="Etios Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./et3.jpeg" alt="Etios Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./et4.jpeg" alt="Etios Image 4">
+                </div>
+            </div>
+        </div>
+        <div class="additional-features">
+            <h3>Additional Features</h3>
+            <ul>
+                <li>Spacious Interior</li>
+                <li>Modern Entertainment System</li>
+                <li>Advanced Safety Features</li>
+                <li>Fuel Efficiency</li>
+                <li>Comfortable Ride</li>
+                <li>Capacity: 4 passengers</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Car Option 3 - Crysta Details -->
+<div class="car-details" id="crysta-details">
+    <div class="container">
+        <h2>Car Option 3 - Crysta</h2>
+        <div class="car-description">
+            <p>
+                Our Crysta is the epitome of luxury and sophistication. It offers a premium travel experience with its plush interiors and advanced features. Whether it's a business trip or a leisurely journey, the Crysta ensures a first-class ride.
+            </p>
+        </div>
+        <div class="image-gallery">
+            <h3>Image Gallery</h3>
+            <div class="gallery-images">
+                <div class="gallery-item">
+                    <img src="./cry1.jpeg" alt="Crysta Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./cry2.jpeg" alt="Crysta Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./cry3.jpeg" alt="Crysta Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./cry4.jpeg" alt="Crysta Image 4">
+                </div>
+            </div>
+        </div>
+        <div class="additional-features">
+            <h3>Additional Features</h3>
+            <ul>
+                <li>Luxurious Interior</li>
+                <li>Advanced Technology</li>
+                <li>Smooth Performance</li>
+                <li>High Safety Standards</li>
+                <li>Exceptional Comfort</li>
+                <li>Capacity: 6 passengers</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Car Option 4 - Tempo Traveller Details -->
+<div class="car-details" id="tempo-traveller-details">
+    <div class="container">
+        <h2>Car Option 4 - Tempo Traveller</h2>
+        <div class="car-description">
+            <p>
+                Our Tempo Traveller is the perfect choice for group travel. It offers ample seating and storage space, making it ideal for family outings, corporate events, and group adventures. Enjoy comfort and convenience on your journeys with the Tempo Traveller.
+            </p>
+        </div>
+        <div class="image-gallery">
+            <h3>Image Gallery</h3>
+            <div class="gallery-images">
+                <div class="gallery-item">
+                    <img src="./tamp1.jpeg" alt="Tempo Traveller Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./tamp2.jpeg" alt="Tempo Traveller Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./tamp3.jpeg" alt="Tempo Traveller Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./tamp4.jpeg" alt="Tempo Traveller Image 4">
+                </div>
+            </div>
+        </div>
+        <div class="additional-features">
+            <h3>Additional Features</h3>
+            <ul>
+                <li>Spacious Seating for Groups</li>
+                <li>Ample Storage Space</li>
+                <li>Entertainment Options</li>
+                <li>Comfortable Ride</li>
+                <li>Reliable and Safe</li>
+                <li>Capacity: 12/15/17/28 passengers</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-group">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to Aditya Tours & Travels. We are dedicated to providing the best travel experiences and packages to our customers. Explore the world with us.
+                </p>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Online Booking</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Contact Information</h3>
+                <address>
+                    <p>Plot No.3 & 6, Vinayak Vihar Vistar, Jaipur, Rajasthan 302031</p>
+                    <p>Phone: +918949289030</p> <!-- Replace with your phone number -->
+                    <p>Email: adityatours.7832@gmail.com</p> <!-- Replace with your email -->
+                </address>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Sticky Navigation Panel -->
+<div class="sticky-panel">
+    <div class="call-us">
+        <a href="tel:your-phone-number" class="btn-call-sticky">Call Us</a>
+    </div>
+    <div class="whatsapp">
+        <a href="https://wa.me/your-whatsapp-number" class="btn-whatsapp" target="_blank">WhatsApp</a>
+    </div>
+</div>
+<script>
+    // JavaScript to add/remove the fixed-header class when scrolling
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    const header = document.getElementById('header');
+    const stickyPanel = document.querySelector('.sticky-panel');
+    const stickyPanelHeight = stickyPanel.offsetHeight;
+    const headerHeight = header.offsetHeight;
+    let isHeaderFixed = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= headerHeight) {
+            if (!isHeaderFixed) {
+                header.classList.add('fixed-header');
+                document.body.style.paddingTop = `${headerHeight}px`;
+                isHeaderFixed = true;
+            }
+        } else {
+            if (isHeaderFixed) {
+                header.classList.remove('fixed-header');
+                document.body.style.paddingTop = '0';
+                isHeaderFixed = false;
+            }
+        }
+    });
+</script>
+</body>
+</html>

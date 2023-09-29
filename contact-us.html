@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: #fff;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            border-bottom: 3px solid #ccc;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px; 
+            height: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #f60;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-group {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #444; 
+            border-radius: 10px; 
+            margin: 10px; 
+        }
+
+        .footer-group h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-group p,
+        .footer-group ul,
+        .footer-group address {
+            font-size: 16px;
+            color: #ccc; 
+        }
+        .footer-group a {
+            text-decoration: none;
+            color: #f60; 
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-group a:hover {
+            color: #ff8500; /* Change link color on hover */
+        }
+        .sticky-panel {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between buttons */
+}
+
+.sticky-panel .btn-call-sticky,
+.sticky-panel .btn-whatsapp {
+    display: inline-block;
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sticky-panel .btn-call:hover,
+.sticky-panel .btn-whatsapp:hover {
+    background-color: #e55000;
+}
+.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+.dropdown-content li {
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tour-packages {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; 
+        }
+        #contactimg{
+            width:50px;
+        }
+        #cont{
+            border: 2px solid gray;
+            
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        #cont:hover{
+            background-color:rgb(206, 206, 206)
+        }
+        #quotation-section {
+    background-color: #fff;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea
+ {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="./att_logo.PNG" alt="Aditya Tours & Travels Logo">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="./taxi-service.html">Taxi Service</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Tour Packages</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Jaipur Sight Seeing</a></li>
+                            <li><a href="#">Jaipur to Agra (Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ranthambore(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Ajmer Pushkar(Same Day) </a></li>
+                            <li><a href="#">Jaipur to Any Other City</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contact" class="container mt-4 mb-3">
+        <div class="row">
+            <div class="col-md-4 " id="cont" >
+                <img src="address.png" class="img-fluid mx-auto d-block" id="contactimg">
+                <h3 class="text-center">Address:- </h3>
+                <p class="text-center"><br>6,Vinayak Vihar Vihar Vistar,<br> Jaipur, Rajasthan 302031</p>
+            </div>
+            <div class="col-md-4" id="cont">
+                <img src="email.jpeg" class="img-fluid mx-auto d-block" id="contactimg">
+                <h3 class="text-center"> Email:- </h3>
+                <p class="text-center"><br>adityatours.7832@gmail.com</p>
+            </div>
+            <div class="col-md-4" id="cont">
+                <img src="phone.png" class="img-fluid mx-auto d-block" id="contactimg">
+
+                <h3 class="text-center"> Phone</h3>
+                <p class="text-center"><br>+91 8949289030</p>
+            </div>
+        </div>
+    </section>
+    <section  id="quotation-section"class="container mt-3 mb-3">
+
+        <div class="row">
+            <div class="col-md-6" id="col1">
+                <h2 class="text-center"> Contact Form </h2>
+            <form id="quotation-form" action="process-quotation.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="abc@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Your Message</label>
+                    <textarea id="description" name="description" placeholder="Your Message" rows="4"></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-success mt-3 mb-3 btn-b" style="background-color: #f60; border:1px solid #f60; padding-left:80px ;padding-right:80px;">Submit</button>
+                </div>
+           
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Google Map Poster</h2>
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Jaipur,India&zoom=15&size=600x400&key=AIzaSyCZsFE34gv0Mhhvj6rXdTwvFsTcIaorcWk" alt="Google Map">
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-group">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to Aditya Tours & Travels. We are dedicated to providing the best travel experiences and packages to our customers. Explore the world with us.
+                </p>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Online Booking</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Contact Information</h3>
+                <address>
+                    <p>Plot No.3 & 6, Vinayak Vihar Vistar, Jaipur, Rajasthan 302031</p>
+                    <p>Phone: +918949289030</p> 
+                    <p>Email: adityatours.7832@gmail.com</p> 
+                </address>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<div class="sticky-panel">
+    <div class="call-us">
+        <a href="tel:your-phone-number" class="btn-call-sticky">Call Us</a>
+    </div>
+    <div class="whatsapp">
+        <a href="https://wa.me/your-whatsapp-number" class="btn-whatsapp" target="_blank">WhatsApp</a>
+    </div>
+</div>
+<script>
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    const header = document.getElementById('header');
+    const stickyPanel = document.querySelector('.sticky-panel');
+    const stickyPanelHeight = stickyPanel.offsetHeight;
+    const headerHeight = header.offsetHeight;
+    let isHeaderFixed = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= headerHeight) {
+            if (!isHeaderFixed) {
+                header.classList.add('fixed-header');
+                document.body.style.paddingTop = `${headerHeight}px`;
+                isHeaderFixed = true;
+            }
+        } else {
+            if (isHeaderFixed) {
+                header.classList.remove('fixed-header');
+                document.body.style.paddingTop = '0';
+                isHeaderFixed = false;
+            }
+        }
+    });
+   </script>
+</body>
+</html>

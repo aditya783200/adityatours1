@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Aditya Tours & Travels</title>
+    <style>
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333; 
+        }
+ 
+        .navbar-toggler-icon-custom {
+            border: 1px solid #fff; 
+            padding: 1px; 
+            border-radius: 1px; 
+            width: 30px;
+            height: 25px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .navbar-toggler-icon-custom div {
+            background-color: #fff; 
+            height: 2px; 
+            margin: 4px 0; 
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important; 
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #f60 !important; 
+        }
+        .dropdown-menu {
+            background-color: #333; 
+        }
+        .dropdown-item {
+            color: #fff !important; 
+            transition: background-color 0.1s; }
+        .dropdown-item:hover {
+            background-color: #f60 !important; 
+        }
+
+        .image-section {
+            background-image: url(./home.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 765px; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            margin-top: 56px; 
+        }
+
+        .image-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px; 
+            border-radius: 10px; 
+            text-align: center;
+            animation: fadeInUp 1s ease; 
+        }
+
+        .image-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .image-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #f60;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 8px;;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #e55000;
+        }
+        .tour-packages {
+            background-color: #f9f9f9;
+            padding: 30x 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            
+            margin: 20px;
+            padding: 20px;
+            
+            text-align: center;
+            width: 300px;
+        }
+        .package:hover{
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+
+            transition: all 200ms ease-out ;
+        }
+
+        .package h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .package p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .package img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn-call {
+            background-color:#f60;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .get-info-car {
+            background-color: #f60;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .get-info-car:hover,
+        .btn-call:hover,.know-more:hover {
+            background-color: #e55000;
+        }
+
+        /* Styles for the sightseeing section */
+        .sightseeing-section {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .sightseeing-text {
+            width: 80%; /* Occupy 80% of the container width */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 auto 20px; /* Center and add margin */
+        }
+
+        .sightseeing-heading {
+            font-size: 28px;
+            color: #f60; /* Heading color */
+            margin-bottom: 20px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center-align the images */
+        }
+
+        .image-gallery-item {
+            width: calc(33.33% - 20px); /* Occupy 33.33% of the container width with some spacing */
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .image-gallery-item:hover{
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+            transition: all 200ms ease-out ;            
+        }
+
+        .image-gallery-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .image-title {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        /* Styles for the cars section */
+        .cars-section {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .car {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+        .car:hover{
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+            transition: all 200ms ease-out ;
+        }
+
+        .car h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .car p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .car img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .know-more {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+        know-more:hover{
+            background-color: #e55000;
+        }
+
+        /* Styles for the footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-group {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #444; /* Background color for footer groups */
+            border-radius: 10px; /* Rounded corners */
+            margin: 10px; /* Add some margin around each group */
+        }
+
+        .footer-group h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-group p,
+        .footer-group ul,
+        .footer-group address {
+            font-size: 16px;
+            color: #ccc; /* Lighter text color */
+        }
+
+        /* Style links on hover */
+        .footer-group a {
+            text-decoration: none;
+            color: #f60; /* Link color */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-group a:hover {
+            color: #ff8500; /* Change link color on hover */
+        }
+        .sticky-panel {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between buttons */
+}
+
+.sticky-panel .btn-call,
+.sticky-panel .btn-whatsapp {
+    display: inline-block;
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sticky-panel .btn-call:hover,
+.sticky-panel .btn-whatsapp:hover {
+    background-color: #e55000;
+}
+.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+       
+
+/* Style the dropdown content (hidden by default) */
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+/* Style the dropdown items */
+.dropdown-content li {
+    padding: 10px;
+}
+
+/* Show the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tour-packages {            padding: 40px 0;
+            text-align: center;
+        }
+
+        .package {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; /* Adjust the width as needed */
+        }
+
+    </style>
+</head>
+<body>
+   
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="./att_logo.PNG" alt="Aditya Tours & Travels Logo" style="max-height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon-custom">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./taxi-service.html">Taxi Service</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tour Packages
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Jaipur Sight Seeing</a>
+                            <a class="dropdown-item" href="#">Jaipur to Agra (Same Day)</a>
+                            <a class="dropdown-item" href="#">Jaipur to Ranthambore(Same Day)</a>
+                            <a class="dropdown-item" href="#">Jaipur to Ajmer Pushkar(Same Day)</a>
+                            <a class="dropdown-item" href="#">Jaipur to Any Other City</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact-us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="image-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="image-content">
+                        <h1>Welcome to Jaipur</h1>
+                        <p>Explore the Pink City with us.</p>
+                        <a href="get-quote.html" class="btn"> Get a Quote</a>
+                        <a href="#tour-package" class="btn">View Packages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section  id="tour-package"class="tour-packages">
+        <h2>Our Tour Packages</h2>
+        <div class="package">
+            <img src="./taj-mahal-agra-india-morning-light-reflection-water-uttar-pradesh-108954918.webp" alt="Jaipur to Agra">
+            <h3>Jaipur to Agra (Same Day)</h3>
+            <p>Experience the beauty of the Taj Mahal with our same-day trip from Jaipur to Agra.</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+            <a href="#" class="know-more">Know More</a>
+        </div>
+        <div class="package">
+            <img src="istockphoto-620735528-612x612.jpg" alt="Jaipur to Ajmer and Pushkar">
+            <h3>Jaipur to Ajmer and Pushkar (Same Day)</h3>
+            <p>Explore the spiritual and cultural gems of Ajmer and Pushkar on a day trip from Jaipur.</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+            <a href="#" class="know-more">Know More</a>
+        </div>
+        <div class="package">
+            <img src="./360_F_240862124_xuYe4djsNMsJ4PtvRHrUlfDTEbmU3Bxr.jpg" alt="Jaipur to Ranthambore">
+            <h3>Jaipur to Ranthambore (Same Day)</h3>
+            <p>Embark on a wildlife adventure with our same-day tour to Ranthambore National Park.</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+            <a href="#" class="know-more">Know More</a>
+        </div>
+        <!-- New Tour Package -->
+        <div class="package">
+            <img src="./india-new-delhi-indian-road-indian-trafic.jpg" alt="Jaipur to Other Cities">
+            <h3>Jaipur to Other Cities in Rajasthan and Nearby States</h3>
+            <p>Travel from Jaipur to various cities in Rajasthan, Delhi, Haryana, UP, and Gujarat for official tours and family functions.</p>
+            <a href="tel:your-phone-number" class="btn-call">Call Now</a>
+            <a href="#" class="know-more">Know More</a>
+        </div>
+    </section>
+
+    <!-- Sightseeing section -->
+    <section class="sightseeing-section">
+        <div class="sightseeing-text">
+            <h2 class="sightseeing-heading">Places to Visit in Jaipur</h2>
+            <!-- List of places can be added here if needed -->
+        </div>
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="image-gallery-item">
+                <img src="./1526709524_shutterstock_780181144.avif" alt="Amber Fort">
+                <div class="image-title">Amber Fort</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./albert-hall-museum.jpg" alt="Albert Hall">
+                <div class="image-title">Albert Hall</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./nahargarh.jpeg" alt="View from Nahargarh Fort">
+                <div class="image-title">View from Nahargarh Fort</div>
+            </div>
+            <!-- Add more images with titles as needed -->
+            <div class="image-gallery-item">
+                <img src="./albert-hall-museum.jpg" alt="Albert Hall Museum">
+                <div class="image-title">Albert Hall Museum</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./Chowkhi-Dhani-Jaipur-Pink-City-Rajasthan-1.jpg" alt="Chokhi Dhani">
+                <div class="image-title">Chokhi Dhani</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./citypalace.jpeg" alt="City Palace">
+                <div class="image-title">City Palace</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./jantar mantar.webp" alt="Jantar Mantar">
+                <div class="image-title">Jantar Mantar</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./jalmahal.jpeg" alt="Jal Mahal">
+                <div class="image-title">Jal Mahal</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./birlamandir.jpeg" alt="Birla Mandir">
+                <div class="image-title">Birla Mandir</div>
+            </div>
+            <div class="image-gallery-item">
+                <img src="./vidhansabha.jpeg" alt="Vidhan Sabha">
+                <div class="image-title">Vidhan Sabha</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cars Available Section -->
+    <section class="cars-section">
+        <h2>Our Available Cars</h2>
+        <div class="car">
+            <img src="./dezire.webp" alt="Car 1">
+            <h3>Swift Dezire</h3>
+            <p>The Swift Dzire offers a comfortable and budget-friendly travel option for individuals and small groups.</p>
+            <p>Capacity: 4 passengers</p>
+            <a href="taxi-service.html" class="get-info-car">More Info..</a>
+        </div>
+        <div class="car">
+            <img src="./etios.webp" alt="Car 2">
+            <h3>Etios </h3>
+            <p>The Etios is a reliable and economical choice for travel with a spacious interior and boot space.</p>
+            <p>Capacity: 4 passengers</p>
+            <a href="taxi-service.html" class="get-info-car">More Info..</a>
+        </div>
+        <div class="car">
+            <img src="./crysta.webp" alt="Car 3">
+            <h3>Innova Crystra</h3>
+            <p>The Innova Crysta redefines family travel with its blend of comfort, space, and modern amenities.</p>
+            <p>Capacity: 6 passengers</p>
+            <a href="taxi-service.html" class="get-info-car">More Info..</a>
+        </div>
+        <div class="car">
+            <img src="./tamputraveller.jpeg" alt="Car 4">
+            <h3>Traveller</h3>
+            <p>The Tempo Traveller offers spacious and comfortable group travel, ideal for larger tourist groups and family outings.</p>
+            <p>Capacity: 12/15/17/18/26 passengers</p>
+            <a href="taxi-service.html" class="get-info-car">More Info..</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-group">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to Aditya Tours & Travels. We are dedicated to providing the best travel experiences and packages to our customers. Explore the world with us.
+                </p>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Online Booking</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Contact Information</h3>
+                <address>
+                    <p>Plot No.3 & 6, Vinayak Vihar Vistar, Jaipur, Rajasthan 302031</p>
+                    <p>Phone: +918949289030</p> <!-- Replace with your phone number -->
+                    <p>Email: adityatours.7832@gmail.com</p> <!-- Replace with your email -->
+                </address>
+            </div>
+    
+            <div class="footer-group">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Sticky Navigation Panel -->
+<div class="sticky-panel">
+    <div class="call-us">
+        <a href="tel:your-phone-number" class="btn-call">Call Us</a>
+    </div>
+    <div class="whatsapp">
+        <a href="https://wa.me/your-whatsapp-number" class="btn-whatsapp" target="_blank">WhatsApp</a>
+    </div>
+</div>
+<script>
+    // JavaScript to add/remove the fixed-header class when scrolling
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    const header = document.getElementById('header');
+    const stickyPanel = document.querySelector('.sticky-panel');
+    const stickyPanelHeight = stickyPanel.offsetHeight;
+    const headerHeight = header.offsetHeight;
+    let isHeaderFixed = false;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= headerHeight) {
+            if (!isHeaderFixed) {
+                header.classList.add('fixed-header');
+                document.body.style.paddingTop = `${headerHeight}px`;
+                isHeaderFixed = true;
+            }
+        } else {
+            if (isHeaderFixed) {
+                header.classList.remove('fixed-header');
+                document.body.style.paddingTop = '0';
+                isHeaderFixed = false;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
